@@ -1,4 +1,6 @@
 <script>
+    import { enhance } from "$app/forms";
+
     export let title = "Task";
     export let description = "This is the task!";
     export let task_id = 1; // for determining deletion in json doc
@@ -10,17 +12,25 @@
         <h1>{title}</h1>
         <p>{description}</p>
     </div>
-    <button>X</button>
+    <form id="delete" method="POST" action="?/delete" use:enhance>
+        <input  type="hidden" name="id" value="{task_id}"/>
+        <button type="submit">X</button>
+    </form>
 </header>
 
 
 <style>
+    form {
+        width: 10%;
+        height: 100%;
+        margin-right: 10px;
+    }
+
     button {
         background-color: red;
         font-size: 4rem;
         height: 100%;
-        width: 10%;
-        margin-right: 10px;
+        width: 100%;
     }
 
     div {

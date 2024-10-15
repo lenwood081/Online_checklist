@@ -1,20 +1,18 @@
 <script>
     import Entry from "$lib/Entry.svelte";
+
+    export let data;
+    $: entries = data.indexedEntries;
 </script>
 
 <main>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
-    <Entry></Entry>
+    {#each entries as entry}
+        <Entry 
+            title={entry.title}
+            description={entry.description}
+            task_id={entry._id}
+        ></Entry>
+    {/each}
 </main>
 
 <style>

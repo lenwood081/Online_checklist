@@ -1,4 +1,4 @@
-import { connectMongo } from "$lib/connection";
+import { connectMongo } from "$lib/Database/connection";
 
 await connectMongo()
    .then(() => {
